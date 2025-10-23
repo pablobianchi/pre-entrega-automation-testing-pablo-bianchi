@@ -3,3 +3,7 @@ Proyecto Talento Tech - Comisión 252472
 
 # DEPENDENCIAS
 pip install -r requirements.txt
+
+
+# EJECCUCION
+pytest -v

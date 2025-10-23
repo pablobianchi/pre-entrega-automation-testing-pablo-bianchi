@@ -4,12 +4,28 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 import time
+from datetime import datetime
+from pathlib import Path
+
+
+REPORTS_FOLDER = 'reports'
+TEST_VERSION = f"ejecucion_{datetime.now():%Y%m%d_%H%M%S}"
+
+out = Path.cwd() / REPORTS_FOLDER / TEST_VERSION
+out.mkdir(parents=True, exist_ok=True)
 
 
 URL = 'https://www.saucedemo.com/'
 USERNAME = 'standard_user'
 PASSWORD = 'secret_sauce'
 BTNLOGIN = 'login-button'
+
+
+##HELPER PARA CAPTURAR SCREENSHOOT
+def take_screenshot( driver:webdriver.Chrome , nombre ):
+
+    fname = f"{TEST_VERSION}_snap_{nombre}.png"
+    driver.save_screenshot(str(out / fname))
 
 
 def get_driver():
@@ -38,6 +54,9 @@ def login( driver:webdriver.Chrome ):
 
     driver.find_element( By.NAME, 'user-name').send_keys(USERNAME)
     driver.find_element( By.NAME, 'password').send_keys(PASSWORD)
+
+    take_screenshot(driver , 'login' );
+
     driver.find_element( By.ID, BTNLOGIN).click()
 
     time.sleep(7)
