@@ -1,0 +1,45 @@
+<form>
+  <fieldset>
+    <legend>Cabecera</legend>
+
+    <!-- Genéricos -->
+    <fieldset>
+      <legend>Genéricos (sin traducción)</legend>
+      <label>Duración: <input type="number" name="duracion" /></label>
+      <label>Imagen: <input type="file" name="imagen_cabecera" /></label>
+      <label>Cantidad de preguntas: <input type="number" name="cantidad_preguntas" /></label>
+    </fieldset>
+
+    <!-- Multilenguaje -->
+    <fieldset>
+      <legend>🇪🇸 Español</legend>
+      <label>Título: <input type="text" name="titulo_es" /></label>
+      <label>Descripción: <textarea name="descripcion_es"></textarea></label>
+      <label>Bibliografía: <textarea name="bibliografia_es"></textarea></label>
+    </fieldset>
+    <!-- Repetir bloques para 🇲🇽 🇺🇸 🇧🇷 -->
+  </fieldset>
+
+  <!-- Preguntas -->
+  <fieldset>
+    <legend>Preguntas</legend>
+    <fieldset>
+      <legend>Pregunta 1</legend>
+
+      <!-- Genéricos -->
+      <fieldset>
+        <legend>Genéricos (sin traducción)</legend>
+        <label>Imagen: <input type="file" name="pregunta1_imagen" /></label>
+      </fieldset>
+
+      <!-- Multilenguaje -->
+      <fieldset>
+        <legend>🇺🇸 English</legend>
+        <label>Título: <input type="text" name="pregunta1_titulo_en" /></label>
+        <label>Opciones: <textarea name="pregunta1_opciones_en"></textarea></label>
+      </fieldset>
+      <!-- Repetir idiomas -->
+    </fieldset>
+    <!-- Repetir hasta Pregunta 4 -->
+  </fieldset>
+</form>
