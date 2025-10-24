@@ -1,12 +1,13 @@
 import pytest
 
+import time
 ##para poder utilizar lo que definí dentro de utils
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__),'..')))
 
 
-from utils.helper import login,get_driver
+from utils.helper import login,get_driver,take_screenshot
 
 @pytest.fixture
 def driver():
@@ -19,12 +20,18 @@ def driver():
     driver.quit()
 
 
+
+
 def test_login( driver):
     login(driver)
     assert "/inventory.html" in driver.current_url
 
 
-##def test_catalogo():
+# def test_catalogo(driver):
+#     login(driver)
+#     take_screenshot(driver , 'inventario' );
+#     time.sleep(7)
+#     #assert "/inventory1.html" in driver.current_url
 
 
 ##def test_carrito():

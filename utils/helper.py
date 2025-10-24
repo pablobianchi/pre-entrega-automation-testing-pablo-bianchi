@@ -42,10 +42,7 @@ def get_driver():
     return driver
 
 
-
-
-
-def login( driver:webdriver.Chrome ):
+def login( driver:webdriver.Chrome , screenshot=False ):
 
     driver.get( URL )
     ##TODO: validar url correcta y status code 200
@@ -55,7 +52,8 @@ def login( driver:webdriver.Chrome ):
     driver.find_element( By.NAME, 'user-name').send_keys(USERNAME)
     driver.find_element( By.NAME, 'password').send_keys(PASSWORD)
 
-    take_screenshot(driver , 'login' );
+    if screenshot:
+        take_screenshot(driver , 'login' );
 
     driver.find_element( By.ID, BTNLOGIN).click()
 
