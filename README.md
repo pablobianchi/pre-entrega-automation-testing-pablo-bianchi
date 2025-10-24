@@ -1,9 +1,36 @@
-# pre-entrega-automation-testing-pablo-bianchi
-Proyecto Talento Tech - Comisión 252472
-
-# DEPENDENCIAS
-pip install -r requirements.txt
+#Proyecto Talento Tech - Comisión 252472
 
 
-# EJECCUCION
-pytest -v
+## Authors
+
+- [@Pablo Bianchi](https://www.github.com/pablobianchi)
+
+
+## Documentación
+Test automatizado sobre el sitio
+[Swag Labs](https://www.saucedemo.com)
+
+
+## Dependencias
+
+Instalación de dependencias
+
+```bash
+  pip install -r requirements.txt
+```
+    
+## Ejecución
+
+Para ejecutar las pruebas
+
+```bash
+  pytest -v
+```
+
+Si se requiere tener un output en formato HTML
+
+```bash
+  pytest --html=reports/report.html --self-contained-html
+```
+
+(nota) : cada ejecución genera dentro de la carpeta reports/screenshots los archivos de evidencia de cada caso de prueba
