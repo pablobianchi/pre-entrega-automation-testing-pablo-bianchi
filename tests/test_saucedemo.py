@@ -13,30 +13,33 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__),'..')))
 
+from pages.login_page import LoginPage
 
-from utils.helper import login,get_driver,take_screenshot
+from utils.helper import get_driver,take_screenshot,USERNAME,PASSWORD
 
-@pytest.fixture
-def driver():
-    driver = get_driver();
+# @pytest.fixture
+# def driver():
+#     driver = get_driver();
     
-    ##Idea clave
-    ##return → devuelve y finaliza la función.
-    ##yield → devuelve un valor y suspende la ejecución; la próxima iteración retoma donde quedó.
-    yield driver
-    driver.quit()
+#     ##Idea clave
+#     ##return → devuelve y finaliza la función.
+#     ##yield → devuelve un valor y suspende la ejecución; la próxima iteración retoma donde quedó.
+#     yield driver
+#     driver.quit()
 
 
 
 
-def test_login( driver ):
-    login(driver,True)
-    assert "/inventory.html" in driver.current_url
+# def test_login( driver ):
+#     login(driver,True)
+#     assert "/inventory.html" in driver.current_url
 
 
 def test_inventory(driver:webdriver.Chrome  ):
 
-    login(driver)
+    loginPage = LoginPage( driver )
+    loginPage.login_completo(USERNAME,PASSWORD)
+
     take_screenshot(driver , 'inventario' );
 
     assert "Swag Labs" in driver.title , f"Título inesperado: {driver.title}"
@@ -51,7 +54,8 @@ def test_inventory(driver:webdriver.Chrome  ):
 
 def test_carrito( driver:webdriver.Chrome  ):
 
-    login(driver)
+    loginPage = LoginPage( driver )
+    loginPage.login_completo(USERNAME,PASSWORD)
     take_screenshot(driver , 'inventario' )
 
     products = driver.find_elements(By.CLASS_NAME, 'inventory_item')

@@ -8,6 +8,7 @@ from datetime import datetime
 from pathlib import Path
 
 
+
 REPORTS_FOLDER = 'reports'
 TEST_VERSION = f"ejecucion_{datetime.now():%Y%m%d_%H%M%S}"
 
@@ -15,6 +16,7 @@ out = Path.cwd() / REPORTS_FOLDER / TEST_VERSION
 out.mkdir(parents=True, exist_ok=True)
 
 
+#base url del proyecto a testear, de aca se deberían desprender todas las demas URL
 URL = 'https://www.saucedemo.com/'
 USERNAME = 'standard_user'
 PASSWORD = 'secret_sauce'
@@ -42,19 +44,19 @@ def get_driver():
     return driver
 
 
-def login( driver:webdriver.Chrome , screenshot=False ):
+# def login( driver:webdriver.Chrome , screenshot=False ):
 
-    driver.get( URL )
-    ##TODO: validar url correcta y status code 200
+#     driver.get( URL )
+#     ##TODO: validar url correcta y status code 200
 
    
 
-    driver.find_element( By.NAME, 'user-name').send_keys(USERNAME)
-    driver.find_element( By.NAME, 'password').send_keys(PASSWORD)
+#     driver.find_element( By.NAME, 'user-name').send_keys(USERNAME)
+#     driver.find_element( By.NAME, 'password').send_keys(PASSWORD)
 
-    if screenshot:
-        take_screenshot(driver , 'login' );
+#     if screenshot:
+#         take_screenshot(driver , 'login' );
 
-    driver.find_element( By.ID, BTNLOGIN).click()
+#     driver.find_element( By.ID, BTNLOGIN).click()
 
-    time.sleep(7)
+#     time.sleep(7)
