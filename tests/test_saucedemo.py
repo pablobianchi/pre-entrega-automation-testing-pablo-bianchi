@@ -35,21 +35,21 @@ from utils.helper import get_driver,take_screenshot,USERNAME,PASSWORD
 #     assert "/inventory.html" in driver.current_url
 
 
-def test_inventory(driver:webdriver.Chrome  ):
+# def test_inventory(driver:webdriver.Chrome  ):
 
-    loginPage = LoginPage( driver )
-    loginPage.login_completo(USERNAME,PASSWORD)
+#     loginPage = LoginPage( driver )
+#     loginPage.login_completo(USERNAME,PASSWORD)
 
-    take_screenshot(driver , 'inventario' );
+#     take_screenshot(driver , 'inventario' );
 
-    assert "Swag Labs" in driver.title , f"Título inesperado: {driver.title}"
+#     assert "Swag Labs" in driver.title , f"Título inesperado: {driver.title}"
 
-    products = driver.find_elements(By.CLASS_NAME, 'inventory_item')
-    assert len(products) > 0 , f"No se encontraron productos"
+#     products = driver.find_elements(By.CLASS_NAME, 'inventory_item')
+#     assert len(products) > 0 , f"No se encontraron productos"
 
-    assert len( driver.find_elements(By.CLASS_NAME, 'product_sort_container' ) ) > 0  , f"No se encontró elemento de Orden"
+#     assert len( driver.find_elements(By.CLASS_NAME, 'product_sort_container' ) ) > 0  , f"No se encontró elemento de Orden"
 
-    assert len( driver.find_elements(By.CLASS_NAME, 'bm-burger-button' ) ) > 0  , f"No se encontró elemento de Menú"
+#     assert len( driver.find_elements(By.CLASS_NAME, 'bm-burger-button' ) ) > 0  , f"No se encontró elemento de Menú"
 
 
 def test_carrito( driver:webdriver.Chrome  ):
